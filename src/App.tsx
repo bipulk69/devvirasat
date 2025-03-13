@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Menu,
   Instagram,
   Facebook,
   Twitter,
@@ -12,30 +11,15 @@ import {
   Mail
 } from 'lucide-react';
 
+// Import new components
+import Navigation from './components/Navigation';
+import ContactSection from './components/ContactSection';
+
 function App() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white/90 backdrop-blur-sm fixed w-full z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-orange-700">विरासत</span>
-              <span className="ml-2 text-xl font-semibold">Virasat</span>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-orange-600">Home</a>
-              <a href="#" className="text-gray-700 hover:text-orange-600">About Us</a>
-              <a href="#" className="text-gray-700 hover:text-orange-600">Our Mission</a>
-              <a href="#" className="text-gray-700 hover:text-orange-600">Cultural Experiences</a>
-              <a href="#" className="text-gray-700 hover:text-orange-600">Contact Us</a>
-            </div>
-            <div className="md:hidden">
-              <Menu className="h-6 w-6 text-gray-700" />
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Navigation - Replace with new component */}
+      <Navigation />
 
       {/* Hero Section */}
       <div className="relative h-screen">
@@ -136,6 +120,9 @@ function App() {
           </p>
         </div>
       </section>
+
+      {/* Contact Section - Add new component */}
+      <ContactSection />
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
