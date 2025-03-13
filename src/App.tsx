@@ -56,7 +56,7 @@ function App() {
       </section>
 
       {/* Our Objectives Section */}
-      <section className="py-20 bg-orange-50">
+      <section id="aboutus"  className="py-20 bg-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">Our Core Objectives</h2>
           <div className="grid md:grid-cols-3 gap-12">
@@ -85,31 +85,59 @@ function App() {
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">Featured Heritage Products</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {['Jal Netri', 'Shankh', 'Mudgar'].map((product) => (
-              <div key={product} className="bg-white rounded-lg overflow-hidden shadow-lg">
-                <img
-                  src={`https://images.unsplash.com/photo-1590136019939-18b15dcd71d4?auto=format&fit=crop&q=80`}
-                  alt={product}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{product}</h3>
-                  <p className="text-gray-600 mb-4">Traditional {product.toLowerCase()} crafted by skilled artisans.</p>
-                  <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+{/* Featured Products */}
+<section id="shop" className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">Featured Heritage Products</h2>
+    <div className="grid md:grid-cols-3 gap-8">
+      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+        <img
+          src="https://images.unsplash.com/photo-1601850518619-adedfc9fb00e?auto=format&fit=crop&q=80"
+          alt="Jal Netri"
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">Jal Netri</h3>
+          <p className="text-gray-600 mb-4">Traditional water vessel crafted by skilled artisans.</p>
+          <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
+            Learn More
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </button>
         </div>
-      </section>
+      </div>
+      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+        <img
+          src="https://images.unsplash.com/photo-1605388177443-e6f9eae1ae9a?auto=format&fit=crop&q=80"
+          alt="Shankh"
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">Shankh</h3>
+          <p className="text-gray-600 mb-4">Sacred conch shell used in rituals and ceremonies.</p>
+          <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
+            Learn More
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </button>
+        </div>
+      </div>
+      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+        <img
+          src="https://images.unsplash.com/photo-1602742159670-fb6a83a311fd?auto=format&fit=crop&q=80"
+          alt="Mudgar"
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-6">
+          <h3 className="text-xl font-semibold mb-2">Mudgar</h3>
+          <p className="text-gray-600 mb-4">Traditional fitness mace used in ancient Indian exercise.</p>
+          <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
+            Learn More
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Vision Section */}
       <section className="py-20 bg-gray-900 text-white">

@@ -30,7 +30,7 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <a href="#" className="text-gray-700 hover:text-orange-600">Home</a>
-            <a href="#" className="text-gray-700 hover:text-orange-600">About Us</a>
+            <a href="#aboutus" className="text-gray-700 hover:text-orange-600">About Us</a>
             
             {/* Tourism Dropdown */}
             <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
@@ -60,7 +60,7 @@ const Navigation = () => {
               )}
             </div>
             
-            <a href="#" className="text-gray-700 hover:text-orange-600">Shop</a>
+            <a href="#shop" className="text-gray-700 hover:text-orange-600">Shop</a>
             <a href="#contact" className="text-gray-700 hover:text-orange-600">Contact Us</a>
           </div>
           
@@ -80,7 +80,7 @@ const Navigation = () => {
             <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">
               Home
             </a>
-            <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">
+            <a href="#aboutus" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">
               About Us
             </a>
             
@@ -106,7 +106,7 @@ const Navigation = () => {
               )}
             </div>
             
-            <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">
+            <a href="#shop" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">
               Shop
             </a>
             <a href="#contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">
