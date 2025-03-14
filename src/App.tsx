@@ -11,6 +11,13 @@ import {
   ArrowRight,
   Mail
 } from 'lucide-react';
+import jalNeti from './public/jalneti.jpg'
+import mugdar from './public/mudgar.jpg'
+import sankh from './public/sankh.jpg'
+import logo1 from './public/logo1.jpg'
+import './index.css';
+
+
 
 // Import components
 import Navigation from './components/Navigation';
@@ -19,15 +26,15 @@ import TourismPage from './components/TourismPage';
 
 function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-y-hidden">
       {/* Navigation - Now included in the component */}
       <Navigation />
 
       {/* Hero Section */}
-      <div className="relative h-screen">
+      <div id="home" className="relative h-screen">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1639729098994-60116f7a7c51?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Indian Heritage"
             className="w-full h-full object-cover"
           />
@@ -85,6 +92,13 @@ function HomePage() {
             </div>
           </div>
         </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10">
+          <h2 className="text-3xl font-bold mb-6 text-gray-900">Our Vision</h2>
+          <p className="text-xl  mx-auto font-sm text-gray-600">
+            To become India's premier platform for authentic cultural experiences, making heritage accessible to all while preserving its essence for future generations.
+          </p>
+        </div>
       </section>
 
       {/* Featured Products */}
@@ -94,9 +108,9 @@ function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1601850518619-adedfc9fb00e?auto=format&fit=crop&q=80"
+                src={jalNeti}
                 alt="Jal Netri"
-                className="w-full h-48 object-cover"
+                className="w-45 h-45 object-cover p-4 w-1/2 mx-auto"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Jal Netri</h3>
@@ -109,12 +123,12 @@ function HomePage() {
             </div>
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1605388177443-e6f9eae1ae9a?auto=format&fit=crop&q=80"
+                src={sankh}
                 alt="Shankh"
-                className="w-full h-48 object-cover"
+                className="w-45 h-45 object-cover p-4 w-1/2 mx-auto"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Shankh</h3>
+                <h3 className="text-xl font-semibold mb-2 mt-14">Shankh</h3>
                 <p className="text-gray-600 mb-4">Sacred conch shell used in rituals and ceremonies.</p>
                 <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
                   Learn More
@@ -124,9 +138,9 @@ function HomePage() {
             </div>
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1602742159670-fb6a83a311fd?auto=format&fit=crop&q=80"
+                src={mugdar}
                 alt="Mudgar"
-                className="w-full h-48 object-cover"
+                className="w-45 h-45 object-cover p-4 w-1/2 mx-auto"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Mudgar</h3>
@@ -142,14 +156,9 @@ function HomePage() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Our Vision</h2>
-          <p className="text-xl max-w-3xl mx-auto">
-            To become India's premier platform for authentic cultural experiences, making heritage accessible to all while preserving its essence for future generations.
-          </p>
-        </div>
-      </section>
+      {/* <section className="py-20  text-black">
+        
+      </section> */}
 
       {/* Newsletter Section - replacing Contact Section */}
       <NewsletterSection />
@@ -159,8 +168,7 @@ function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">विरासत Virasat</h3>
-              <p className="text-gray-400 mb-6">Connecting hearts through heritage</p>
+            <img src={logo1} alt='logo' className='h-[250px] [w-250px] mt-4'/>
               <div className="flex space-x-4">
                 <Instagram className="h-6 w-6 text-gray-400 hover:text-white cursor-pointer" />
                 <Facebook className="h-6 w-6 text-gray-400 hover:text-white cursor-pointer" />
@@ -182,7 +190,7 @@ function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            © 2025 Virasat. All Rights Reserved.
+            © 2025 The Virasat. All Rights Reserved.
           </div>
         </div>
       </footer>

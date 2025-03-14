@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Mail } from 'lucide-react';
+import newsletter from '../public/newsletter.jpg'
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ const NewsletterSection = () => {
             {/* Left Section - Image */}
             <div className="md:w-1/2 relative">
               <img 
-                src="https://images.unsplash.com/photo-1551732998-9573f695fdbb?auto=format&fit=crop&q=80" 
+                src={newsletter} 
                 alt="Indian Cultural Heritage" 
                 className="w-full h-full object-cover"
               />

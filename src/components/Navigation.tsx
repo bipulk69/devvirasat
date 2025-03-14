@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, ChevronDown } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import logo from '../public/logo.jpg'
+
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
@@ -19,8 +20,7 @@ const Navigation = () => {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-orange-700">विरासत</span>
-              <span className="ml-2 text-xl font-semibold">Virasat</span>
+              <img src={logo} alt='logo' className='h-[250px] [w-250px]'/>
             </Link>
           </div>
           
