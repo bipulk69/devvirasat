@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
   Instagram,
   Facebook,
@@ -11,14 +12,15 @@ import {
   Mail
 } from 'lucide-react';
 
-// Import new components
+// Import components
 import Navigation from './components/Navigation';
-import ContactSection from './components/ContactSection';
+import NewsletterSection from './components/NewsletterSection';
+import TourismPage from './components/TourismPage';
 
-function App() {
+function HomePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation - Replace with new component */}
+      {/* Navigation - Now included in the component */}
       <Navigation />
 
       {/* Hero Section */}
@@ -44,7 +46,7 @@ function App() {
       </div>
 
       {/* Introduction Section */}
-      <section className="py-20 bg-white">
+      <section id="bridging" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Bridging Past and Present</h2>
@@ -56,7 +58,7 @@ function App() {
       </section>
 
       {/* Our Objectives Section */}
-      <section id="aboutus"  className="py-20 bg-orange-50">
+      <section id="aboutus" className="py-20 bg-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">Our Core Objectives</h2>
           <div className="grid md:grid-cols-3 gap-12">
@@ -85,59 +87,59 @@ function App() {
         </div>
       </section>
 
-{/* Featured Products */}
-<section id="shop" className="py-20 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">Featured Heritage Products</h2>
-    <div className="grid md:grid-cols-3 gap-8">
-      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-        <img
-          src="https://images.unsplash.com/photo-1601850518619-adedfc9fb00e?auto=format&fit=crop&q=80"
-          alt="Jal Netri"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">Jal Netri</h3>
-          <p className="text-gray-600 mb-4">Traditional water vessel crafted by skilled artisans.</p>
-          <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
-            Learn More
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
+      {/* Featured Products */}
+      <section id="shop" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-16">Featured Heritage Products</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1601850518619-adedfc9fb00e?auto=format&fit=crop&q=80"
+                alt="Jal Netri"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Jal Netri</h3>
+                <p className="text-gray-600 mb-4">Traditional water vessel crafted by skilled artisans.</p>
+                <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1605388177443-e6f9eae1ae9a?auto=format&fit=crop&q=80"
+                alt="Shankh"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Shankh</h3>
+                <p className="text-gray-600 mb-4">Sacred conch shell used in rituals and ceremonies.</p>
+                <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1602742159670-fb6a83a311fd?auto=format&fit=crop&q=80"
+                alt="Mudgar"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Mudgar</h3>
+                <p className="text-gray-600 mb-4">Traditional fitness mace used in ancient Indian exercise.</p>
+                <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-        <img
-          src="https://images.unsplash.com/photo-1605388177443-e6f9eae1ae9a?auto=format&fit=crop&q=80"
-          alt="Shankh"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">Shankh</h3>
-          <p className="text-gray-600 mb-4">Sacred conch shell used in rituals and ceremonies.</p>
-          <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
-            Learn More
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
-        </div>
-      </div>
-      <div className="bg-white rounded-lg overflow-hidden shadow-lg">
-        <img
-          src="https://images.unsplash.com/photo-1602742159670-fb6a83a311fd?auto=format&fit=crop&q=80"
-          alt="Mudgar"
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">Mudgar</h3>
-          <p className="text-gray-600 mb-4">Traditional fitness mace used in ancient Indian exercise.</p>
-          <button className="text-orange-600 font-semibold flex items-center hover:text-orange-700">
-            Learn More
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Vision Section */}
       <section className="py-20 bg-gray-900 text-white">
@@ -149,8 +151,8 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section - Add new component */}
-      <ContactSection />
+      {/* Newsletter Section - replacing Contact Section */}
+      <NewsletterSection />
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
@@ -185,6 +187,18 @@ function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+// Main App Component with Router
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tourism" element={<TourismPage />} />
+      </Routes>
+    </Router>
   );
 }
 
