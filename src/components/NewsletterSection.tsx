@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 import { Send, Mail } from 'lucide-react';
-import newsletter from '../public/newsletter.jpg'
+import { saveSubscriber } from '../services/firebaseService';
+import newsletter from '../public/newsletter.jpg';
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Newsletter subscription:', email);
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
     
-    // Reset form after submission
-    setTimeout(() => {
-      setEmail('');
-      setSubmitted(false);
-    }, 3000);
+    try {
+      await saveSubscriber(email);
+      setSubmitted(true);
+      
+      setTimeout(() => {
+        setEmail('');
+        setSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      console.error('Error submitting newsletter subscription:', err);
+      setError('There was an error processing your subscription. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -56,6 +68,12 @@ const NewsletterSection = () => {
                 </div>
               ) : null}
               
+              {error ? (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                  {error}
+                </div>
+              ) : null}
+              
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="newsletter-email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -73,6 +91,7 @@ const NewsletterSection = () => {
                       className="pl-10 block w-full shadow-sm focus:ring-orange-500 focus:border-orange-500 border-gray-300 rounded-md py-3"
                       placeholder="your@email.com"
                       required
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -91,10 +110,17 @@ const NewsletterSection = () => {
                 
                 <button
                   type="submit"
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center justify-center"
+                  disabled={loading}
+                  className={`w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center justify-center ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  <Send className="mr-2 h-5 w-5" />
-                  Subscribe Now
+                  {loading ? (
+                    <>Processing...</>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Subscribe Now
+                    </>
+                  )}
                 </button>
               </form>
               
