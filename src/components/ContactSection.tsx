@@ -1,26 +1,54 @@
 import React, { useState } from 'react';
 import { Mail, Send, Phone, MapPin } from 'lucide-react';
+import { saveContactSubmission } from '../services/firebaseService';
 
 const ContactSection = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [name, setName] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In production, this would connect to your email service
-    console.log('Form submitted:', { name, email, message });
-    setSubmitted(true);
-    
-    // Reset form after submission
-    setTimeout(() => {
-      setName('');
-      setEmail('');
-      setMessage('');
-      setSubmitted(false);
-    }, 3000);
+
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    
+    try {
+      await saveContactSubmission(formData);
+      setSubmitted(true);
+      
+      // Reset form after submission
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        setSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      console.error('Error submitting contact form:', err);
+      setError('There was an error sending your message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
 
   return (
     <section id="contact" className="py-20 bg-orange-50">
